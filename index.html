@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#0866ff"/>
+<meta name="description" content="RTN Chat Lite V6 Speed Final - fast mobile social chat app"/>
+<title>RTN Chat Lite V6 Speed Cloudinary</title>
+<style>
+:root{--bg:#f0f2f5;--card:#fff;--card2:#f8fafc;--text:#0f172a;--muted:#64748b;--line:#e2e8f0;--brand:#0866ff;--brand2:#00a3ff;--green:#22c55e;--red:#ef4444;--amber:#f59e0b;--shadow:0 18px 42px rgba(15,23,42,.10);--radius:22px}
+[data-theme=dark]{--bg:#07111f;--card:#0f172a;--card2:#111c31;--text:#e5e7eb;--muted:#94a3b8;--line:#1e293b;--shadow:0 18px 55px rgba(0,0,0,.42)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}.muted{color:var(--muted)}.tiny{font-size:12px}.grow{flex:1}.row{display:flex;gap:10px;align-items:center}.between{justify-content:space-between}.wrap{flex-wrap:wrap}
+.btn{border:0;border-radius:14px;padding:11px 15px;background:var(--brand);color:#fff;font-weight:850;box-shadow:0 8px 20px rgba(8,102,255,.18)}.btn.full{width:100%}.btn.ghost{background:var(--card2);color:var(--text);box-shadow:none;border:1px solid var(--line)}.btn.green{background:var(--green)}.btn.red{background:var(--red)}.btn.amber{background:var(--amber)}.btn.xs{padding:7px 10px;border-radius:11px;font-size:12px}
+.icon{width:42px;height:42px;border:0;border-radius:50%;background:var(--card2);display:grid;place-items:center;color:var(--text);font-size:19px}.icon.active,.icon:hover{background:#dbeafe;color:var(--brand)}[data-theme=dark] .icon.active,[data-theme=dark] .icon:hover{background:#172554}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--card)}.badge{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--brand);color:white;font-size:12px;margin-left:4px}
+.auth{min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 10% 0,#bfdbfe,transparent 34%),radial-gradient(circle at 90% 10%,#a7f3d0,transparent 35%),var(--bg)}.authbox{width:min(980px,100%);display:grid;grid-template-columns:1fr 420px;gap:22px;align-items:center}.hero h1{font-size:62px;line-height:1;margin:0;color:var(--brand);letter-spacing:-2px}.hero p{font-size:22px;color:var(--muted);line-height:1.45}.login-card{padding:24px}.field{margin:10px 0}.field input,.field textarea{width:100%;background:var(--card2);border:1px solid var(--line);outline:0;color:var(--text);border-radius:15px;padding:13px 14px}.field textarea{min-height:95px;resize:vertical}.passrow{display:flex;gap:8px}.passrow input{flex:1}.passrow button{border:0;border-radius:15px;background:var(--card2);padding:0 13px}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}[data-theme=dark] .topbar{background:rgba(15,23,42,.88)}.topin{max-width:1220px;margin:auto;padding:10px 14px;display:flex;align-items:center;gap:12px}.logo{display:flex;align-items:center;gap:9px;color:var(--brand);font-weight:950;font-size:24px;white-space:nowrap}.logomark{width:38px;height:38px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:white;display:grid;place-items:center;box-shadow:0 10px 25px rgba(8,102,255,.28)}.search{flex:1;max-width:430px}.search input{width:100%;border:0;outline:0;background:var(--card2);border-radius:999px;padding:12px 16px;color:var(--text)}.actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.layout{max-width:1220px;margin:auto;display:grid;grid-template-columns:265px minmax(0,1fr) 300px;gap:16px;padding:16px 14px 92px}.left,.right{position:sticky;top:72px;height:calc(100vh - 88px);overflow:auto}.side{padding:14px}.mini{display:flex;gap:11px;align-items:center;padding:8px;border-radius:16px}.mini:hover{background:var(--card2)}.mini img{width:52px;height:52px;border-radius:50%;object-fit:cover}.menu{width:100%;border:0;background:transparent;color:var(--text);display:flex;gap:12px;align-items:center;text-align:left;padding:12px;border-radius:16px;font-weight:850}.menu:hover,.menu.active{background:#eef4ff;color:var(--brand)}[data-theme=dark] .menu:hover,[data-theme=dark] .menu.active{background:#172554}.divider{height:1px;background:var(--line);margin:12px 0}.view{display:none}.view.active{display:block}.panel-title{font-size:18px;font-weight:950;margin-bottom:12px}
+.stories,.notes{display:flex;gap:12px;overflow-x:auto;padding:14px;scroll-snap-type:x mandatory}.stories::-webkit-scrollbar,.notes::-webkit-scrollbar{height:0}.story{min-width:112px;height:178px;border-radius:20px;overflow:hidden;background:#111;position:relative;scroll-snap-align:start;border:1px solid var(--line)}.story img{width:100%;height:100%;object-fit:cover;opacity:.84}.story b{position:absolute;left:10px;right:10px;bottom:9px;color:white;font-size:13px;text-shadow:0 2px 9px black}.story .plus{position:absolute;left:9px;top:9px;width:31px;height:31px;border-radius:50%;background:var(--brand);color:white;display:grid;place-items:center;font-weight:950}.note{min-width:190px;background:#eef4ff;color:#172554;border-radius:18px;padding:13px;scroll-snap-align:start;border:1px solid #dbeafe}.note b{display:block}[data-theme=dark] .note{background:#172554;color:#dbeafe;border-color:#1d4ed8}
+.composer{padding:14px;margin-top:14px}.composer-top{display:flex;gap:10px}.composer-top input{flex:1;border:0;outline:0;background:var(--card2);border-radius:999px;padding:13px 16px;color:var(--text)}.composer-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.composer-actions button{border:0;background:transparent;color:var(--text);font-weight:850;border-radius:14px;padding:10px}.composer-actions button:hover{background:var(--card2)}
+.post{padding:14px;margin-top:14px}.post-head{display:flex;gap:10px;align-items:center}.post-head img{width:44px;height:44px;border-radius:50%;object-fit:cover}.name{font-weight:950}.clickable{cursor:pointer}.post-body{line-height:1.5;margin:12px 0;white-space:pre-wrap}.post-media{width:100%;max-height:560px;object-fit:contain;border-radius:18px;border:1px solid var(--line);background:var(--card2)}.stats{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line);padding-bottom:10px}.post-actions{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding-top:8px}.post-actions button{border:0;background:transparent;color:var(--muted);font-weight:850;border-radius:12px;padding:10px}.post-actions button:hover,.post-actions button.liked{background:#eef4ff;color:var(--brand)}[data-theme=dark] .post-actions button:hover,[data-theme=dark] .post-actions button.liked{background:#172554}.comment{margin:7px 0;padding:9px 11px;border-radius:14px;background:var(--card2);font-size:14px}.reply{margin-left:20px;border-left:2px solid var(--line);padding-left:10px}.person{display:flex;align-items:center;gap:10px;padding:10px;border-radius:16px}.person:hover{background:var(--card2)}.person img{width:45px;height:45px;border-radius:50%;object-fit:cover}.online{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--green)}
+.profile-cover{height:220px;border-radius:0 0 28px 28px;background:linear-gradient(135deg,var(--brand),#7c3aed);overflow:hidden}.profile-cover img{width:100%;height:100%;object-fit:cover}.profile-card{padding:0 18px 16px}.profile-main{display:flex;gap:16px;align-items:end;margin-top:-56px}.profile-main>img{width:120px;height:120px;border-radius:50%;border:5px solid var(--card);object-fit:cover}.profile-info{flex:1}.tabs{display:flex;gap:8px;overflow:auto;border-top:1px solid var(--line);padding-top:12px}.tabs button{border:0;background:transparent;color:var(--text);padding:10px 14px;border-radius:14px;font-weight:850}.tabs button.active{background:#eef4ff;color:var(--brand)}
+.chat-shell{display:grid;grid-template-columns:305px 1fr;gap:14px}.chat-list{height:70vh;overflow:auto}.chat-window{height:70vh;display:flex;flex-direction:column}.messages{flex:1;overflow:auto;padding:13px;background:var(--card2);border-radius:18px}.bubble{max-width:75%;padding:10px 12px;margin:8px 0;border-radius:18px;background:var(--card);border:1px solid var(--line)}.bubble.me{margin-left:auto;background:#0084ff;color:white;border-color:#0084ff}.bubble img{max-width:250px;max-height:250px;border-radius:14px;display:block;margin-bottom:6px}.filelink{display:inline-block;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.18);color:inherit;text-decoration:none;border:1px solid rgba(255,255,255,.25)}.status{font-size:11px;opacity:.8;text-align:right;margin-top:4px}.chat-input{display:flex;gap:8px;padding-top:10px}.chat-input input{flex:1;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:12px 14px}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.58);z-index:100;display:none;align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.modal-box{width:min(720px,100%);max-height:88vh;overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:18px;box-shadow:var(--shadow)}.bottom{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);border-top:1px solid var(--line);padding:7px 8px calc(7px + env(safe-area-inset-bottom));grid-template-columns:repeat(5,1fr)}.bottom button{border:0;background:transparent;color:var(--muted);font-size:20px;padding:7px 4px;border-radius:14px;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:54px}.bottom small{font-size:10px;font-weight:850;line-height:1}.bottom button.active{color:var(--brand);background:#eef4ff}[data-theme=dark] .bottom button.active{background:#172554}.toast{position:fixed;right:16px;bottom:84px;z-index:200;display:none;background:#0f172a;color:white;padding:12px 14px;border-radius:16px;box-shadow:var(--shadow)}.toast.show{display:block}.call-img{width:118px;height:118px;border-radius:50%;object-fit:cover;animation:pulse 1.5s infinite}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(8,102,255,.45)}70%{box-shadow:0 0 0 24px rgba(8,102,255,0)}}
+
+.call-modal{padding:0;overflow:hidden}
+.call-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.call-body{position:relative;background:#020617;min-height:420px;display:grid;place-items:center;border-radius:0 0 22px 22px;overflow:hidden}
+.remote-video{width:100%;height:100%;min-height:420px;object-fit:cover;background:#020617}
+.local-video{position:absolute;right:14px;bottom:86px;width:118px;height:160px;object-fit:cover;border-radius:18px;border:2px solid rgba(255,255,255,.85);background:#111827;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.audio-face{text-align:center;color:white}.audio-face img{width:126px;height:126px;border-radius:50%;object-fit:cover;animation:pulse 1.5s infinite}.audio-face audio{display:none}
+.call-controls{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:12px}
+.call-controls button{width:52px;height:52px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:white;font-size:20px;backdrop-filter:blur(10px)}
+.call-controls button.end{background:var(--red)}
+.incoming-card{text-align:center;padding:22px}.incoming-card img{width:110px;height:110px;border-radius:50%;object-fit:cover;animation:pulse 1.5s infinite}.incoming-actions{display:flex;gap:12px;justify-content:center;margin-top:16px}
+@media(max-width:600px){.call-body{min-height:calc(100vh - 180px)}.remote-video{min-height:calc(100vh - 180px)}.local-video{width:96px;height:130px}}
+
+@media(max-width:1000px){.btn,.menu,.person,.post-actions button{min-height:44px}.composer-actions{grid-template-columns:repeat(4,1fr)}.authbox{grid-template-columns:1fr}.hero{text-align:center}.hero h1{font-size:44px}.hero p{font-size:18px}.layout{grid-template-columns:1fr;padding:12px 10px 88px}.left,.right{display:none}.search{display:none}.logo span:last-child{font-size:20px}.topin{gap:8px}.actions{gap:5px}.hide-sm{display:none}.bottom{display:grid}.chat-shell{grid-template-columns:1fr}.chat-list{height:auto;max-height:250px}.chat-window{height:68vh}.profile-main{align-items:center;flex-wrap:wrap}.profile-main>img{width:104px;height:104px}.post-actions span{display:none}.post-actions{grid-template-columns:repeat(5,1fr)}}
+
+/* RTN V3 premium polish */
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#eef4ff;color:var(--brand);font-size:12px;font-weight:850}[data-theme=dark] .pill{background:#172554;color:#bfdbfe}
+.media-preview{margin-top:10px;padding:10px;border:1px dashed var(--line);border-radius:18px;background:var(--card2);font-size:13px;color:var(--muted)}
+.fab{position:fixed;right:18px;bottom:92px;z-index:70;width:58px;height:58px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--brand),#7c3aed);color:white;font-size:34px;box-shadow:0 18px 40px rgba(8,102,255,.35)}
+.skeleton{background:linear-gradient(90deg,var(--card2),rgba(148,163,184,.25),var(--card2));background-size:200% 100%;animation:shine 1.15s infinite;border-radius:18px;min-height:90px}@keyframes shine{to{background-position:-200% 0}}
+.post-tools{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.post-tools button{box-shadow:none}.danger-zone{background:rgba(239,68,68,.10);border:1px solid rgba(239,68,68,.35);padding:12px;border-radius:16px}.success-zone{background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.35);padding:12px;border-radius:16px}.replying{display:flex;justify-content:space-between;gap:8px;margin-top:8px;padding:8px 10px;border-left:3px solid var(--brand);background:var(--card2);border-radius:12px;font-size:12px}.typing{height:18px;font-size:12px;color:var(--muted);padding-left:8px}.bubble-actions{display:flex;gap:4px;margin-top:6px;opacity:.85}.bubble-actions button{border:0;background:rgba(148,163,184,.18);color:inherit;border-radius:999px;padding:4px 7px;font-size:11px}.story-progress{height:5px;background:rgba(255,255,255,.35);border-radius:999px;overflow:hidden;margin:6px 0}.story-progress span{display:block;height:100%;background:#fff;border-radius:999px}.notice-card{padding:12px;border-radius:18px;background:var(--card2);border:1px solid var(--line);margin:8px 0}.empty{padding:22px;text-align:center;color:var(--muted)}
+@media(max-width:1000px){.fab{right:16px;bottom:82px;width:54px;height:54px}.composer-actions button{font-size:13px}.post{border-radius:18px}.story{min-width:96px;height:152px}.topAvatar{width:38px;height:38px}.chat-window{height:calc(100vh - 250px)}.bubble{max-width:88%}}
+
+
+/* ===== RTN Chat Lite V6 Speed polish ===== */
+:root{--glass:rgba(255,255,255,.72);--brandGlow:0 18px 45px rgba(8,102,255,.22);--soft:rgba(8,102,255,.08)}
+[data-theme=dark]{--glass:rgba(15,23,42,.72);--soft:rgba(96,165,250,.12)}
+body{background:radial-gradient(circle at top left,rgba(8,102,255,.12),transparent 34%),radial-gradient(circle at bottom right,rgba(34,197,94,.10),transparent 28%),var(--bg)}
+.topbar{box-shadow:0 8px 28px rgba(15,23,42,.07)}
+.card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.card:hover{border-color:rgba(8,102,255,.24)}
+.btn:active,.icon:active,.menu:active{transform:scale(.98)}
+.logo .logomark{animation:softPulse 2.6s infinite}@keyframes softPulse{0%,100%{box-shadow:0 10px 24px rgba(8,102,255,.25)}50%{box-shadow:0 10px 35px rgba(8,102,255,.42)}}
+.quickbar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px;margin-bottom:12px;background:linear-gradient(135deg,var(--glass),var(--card));backdrop-filter:blur(14px)}
+.quickcard{border:1px solid var(--line);border-radius:18px;background:var(--card2);padding:12px;display:flex;gap:10px;align-items:center;cursor:pointer;min-height:62px}.quickcard b{display:block}.quickcard span{font-size:24px}.quickcard:hover{background:var(--soft);border-color:rgba(8,102,255,.35)}
+.feed-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 2px 2px}.feed-head h3{margin:0}.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:var(--card2);border:1px solid var(--line);font-size:12px;font-weight:850;color:var(--muted)}
+.premium-modal .modal-box{border:1px solid rgba(8,102,255,.22)}
+.user-hero{margin:-18px -18px 0;border-radius:26px 26px 0 0;overflow:hidden}.user-action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.user-action-grid .btn{box-shadow:none}.status-dot{display:inline-block;width:8px;height:8px;border-radius:999px;background:var(--muted);margin-right:5px}.status-dot.on{background:var(--green)}
+.chat-search{width:100%;border:1px solid var(--line);background:var(--card2);color:var(--text);border-radius:999px;padding:10px 12px;margin:8px 0}.chat-contact.active{background:var(--soft);border:1px solid rgba(8,102,255,.24)}
+.system-check{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.system-check div{padding:12px;border-radius:16px;border:1px solid var(--line);background:var(--card2)}
+.install-note{display:flex;gap:10px;align-items:center;justify-content:space-between;border:1px dashed rgba(8,102,255,.45);background:var(--soft);padding:10px;border-radius:16px;margin-top:10px}.install-note button{box-shadow:none}
+.media-preview{margin-top:10px;border:1px dashed var(--line);border-radius:16px;padding:10px;background:var(--card2)}
+.media-preview img,.media-preview video{max-width:100%;max-height:260px;border-radius:14px;display:block;margin:auto}.composer.dragover{outline:2px dashed var(--brand);outline-offset:4px}
+@media(max-width:700px){.quickbar{grid-template-columns:repeat(2,1fr);padding:10px}.quickcard{min-height:54px;padding:10px}.quickcard span{font-size:20px}.user-action-grid{grid-template-columns:1fr}.system-check{grid-template-columns:1fr}.modal{padding:10px}.modal-box{max-height:92vh;border-radius:22px}.layout{padding-bottom:100px}.post-actions button{font-size:13px;padding:9px 4px}.logo span:last-child{font-size:18px}.topin{padding:8px 10px}}
+
+
+/* V6 speed + mobile polish */
+.notice-btn{position:relative}.notice-dot{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--red);color:white;font-size:10px;font-weight:950;display:grid;place-items:center;border:2px solid var(--card)}.bottom .notice-dot{top:2px;right:14px;font-style:normal}.speedbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;margin-bottom:10px;border-radius:18px;background:linear-gradient(135deg,rgba(8,102,255,.10),rgba(34,197,94,.10));border:1px solid var(--line)}.speedbar b{font-size:14px}.search-card{padding:12px;margin-bottom:12px}.search-card input,.people-filter,.chat-search{width:100%;border:1px solid var(--line);background:var(--card2);color:var(--text);border-radius:999px;padding:12px 14px;outline:0}.people-count{font-size:12px;color:var(--muted);margin:8px 0 0}.chat-contact{border:1px solid transparent}.chat-contact.active{background:#eef4ff;border-color:#bfdbfe}.chat-contact .chat-action-pill{margin-left:auto;background:var(--brand);color:white;padding:6px 10px;border-radius:999px;font-size:11px;font-weight:900}.chat-empty{min-height:100%;display:grid;place-items:center;text-align:center;padding:26px;color:var(--muted)}.chat-empty .big{font-size:52px;line-height:1}.chat-titlebar{position:sticky;top:0;z-index:2;background:var(--card);padding:8px;border-bottom:1px solid var(--line);border-radius:18px 18px 0 0}.chat-hint{padding:8px 10px;margin:8px 0;border-radius:14px;background:#eef4ff;color:#1e3a8a;font-weight:800}.msg-unread-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:82px;z-index:210;background:#0f172a;color:white;padding:10px 14px;border-radius:999px;box-shadow:var(--shadow);display:none}.msg-unread-toast.show{display:block}.bubble{word-break:break-word}.bubble-actions{opacity:.55}.bubble:hover .bubble-actions{opacity:1}.typing{min-height:18px;color:var(--brand);font-size:12px;padding:0 10px}.replying{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eef4ff;border:1px solid #bfdbfe;border-radius:14px;padding:8px;margin-top:8px}.launch-tip{border:1px dashed var(--brand);background:rgba(8,102,255,.08);padding:12px;border-radius:16px}.blue-reason{min-height:110px}.fast-empty{padding:24px;text-align:center;color:var(--muted)}.compact-post{contain:content}.post-media{content-visibility:auto}.skeleton{min-height:100px;border-radius:18px;background:linear-gradient(90deg,var(--card2),rgba(148,163,184,.22),var(--card2));background-size:220% 100%;animation:skeletonMove 1.2s infinite}@keyframes skeletonMove{to{background-position:-220% 0}}
+@media(max-width:1000px){.topin{padding:8px 10px}.logo span:last-child{font-size:18px}.composer-actions{grid-template-columns:repeat(2,1fr)}.layout{padding:10px 8px 86px}.post{margin-top:10px;padding:12px;border-radius:18px}.post-actions button{font-size:13px;padding:9px 4px}.post-actions span{display:none}.stories{padding:10px}.story{min-width:92px;height:145px;border-radius:18px}.notes{padding:10px}.note{min-width:155px}.chat-shell{display:flex;flex-direction:column;gap:10px;padding:10px}.chat-list{height:auto;max-height:38vh}.chat-window{height:calc(100vh - 260px);min-height:430px;border:1px solid var(--line);border-radius:20px;background:var(--card)}.messages{border-radius:0 0 18px 18px;padding:10px}.bubble{max-width:86%;font-size:14px}.chat-input{position:sticky;bottom:0;background:var(--card);padding:8px;border-top:1px solid var(--line);border-radius:0 0 18px 18px}.chat-input input{min-height:44px}.chat-contact{background:var(--card2);margin-bottom:8px;border-radius:16px}.chat-contact img{width:50px;height:50px}.profile-main{margin-top:-42px}.profile-main>img{width:96px;height:96px}.user-action-grid{grid-template-columns:repeat(2,1fr)}.modal{align-items:flex-end;padding:8px}.modal-box{width:100%;max-height:92vh;border-radius:24px 24px 18px 18px}.msg-unread-toast{bottom:78px;max-width:92%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+@media(max-width:420px){.bottom button{font-size:18px}.bottom small{font-size:9px}.chat-window{min-height:390px}.btn{padding:10px 12px}.post-tools{display:flex;gap:4px;flex-wrap:wrap}}
+
+</style>
+</head>
+<body>
+<div id="auth" class="auth">
+  <div class="authbox">
+    <div class="hero"><h1>RTN Chat</h1><p>Username আর password দিয়ে login. Fast mobile social app: post, story, friends, chat, notifications, audio/video call — সব Firebase realtime.</p></div>
+    <div class="card login-card">
+      <h2>Welcome back</h2>
+      <div class="field"><input id="username" autocomplete="username" placeholder="Username, যেমন ratan"></div>
+      <div class="field passrow"><input id="password" type="password" autocomplete="current-password" placeholder="Password"><button id="showPass">🙈</button></div>
+      <button class="btn full" id="loginBtn">Login</button>
+      <div class="divider"></div>
+      <button class="btn full green" id="registerBtn">Create account</button>
+      <p class="tiny muted">Email লাগবে না। Username + 6 digit/letter password দিয়ে account হবে।</p>
+    </div>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+<header class="topbar"><div class="topin">
+  <div class="logo"><span class="logomark">R</span><span>RTN Chat Lite V5</span></div>
+  <div class="search"><input id="searchBox" placeholder="Search people"></div>
+  <div class="actions">
+    <button class="icon nav active" data-view="home">🏠</button><button class="icon nav" data-view="friends">👥</button><button class="icon nav" data-view="chat">💬</button><button class="icon nav notice-btn" data-view="notifications">🔔<span id="noticeDot" class="notice-dot hidden">0</span></button><button class="icon" id="themeBtn">🌙</button><img id="topAvatar" class="avatar">
+  </div>
+</div></header>
+<main class="layout">
+  <aside class="left"><div class="card side">
+    <div class="mini" id="miniProfile"><img id="leftAvatar"><div><div class="name" id="leftName"></div><div class="tiny muted">@<span id="leftUser"></span></div></div></div><div class="divider"></div>
+    <button class="menu nav active" data-view="home">🏠 Home</button><button class="menu nav" data-view="profile">👤 Profile</button><button class="menu nav" data-view="friends">👥 Friends</button><button class="menu nav" data-view="chat">💬 Messenger</button><button class="menu nav" data-view="notifications">🔔 Notifications</button><button class="menu" id="blueBtn">✅ Apply Blue Badge</button><button class="menu" id="logoutBtn">🚪 Logout</button>
+  </div></aside>
+  <section>
+    <div id="home" class="view active"><div class="card quickbar"><div class="quickcard" onclick="openQuickPost()"><span>✍️</span><div><b>Post</b><small class="muted">Text/media</small></div></div><div class="quickcard" onclick="openStoryComposer()"><span>⭕</span><div><b>Story</b><small class="muted">12 hour</small></div></div><div class="quickcard" onclick="openView('friends')"><span>👥</span><div><b>Friends</b><small class="muted">Request</small></div></div><div class="quickcard" onclick="openView('chat')"><span>💬</span><div><b>Chat</b><small class="muted">Messenger</small></div></div></div><div class="card stories" id="stories"></div><div class="card notes" id="notes"></div><div class="card composer"><div class="composer-top"><img class="avatar" id="composerAvatar"><input id="postText" placeholder="What's on your mind?"></div><input id="postImage" class="hidden" type="file" accept="image/*,video/*"><div class="composer-actions"><button id="postBtn">📝 Post</button><button id="photoBtn">📷 Media</button><button id="storyBtn">➕ Story</button><button id="noteBtn">💬 Note</button></div><div id="mediaPreview" class="media-preview hidden"></div></div><div class="feed-head"><h3>Latest Feed</h3><span class="chip" id="feedChip">Live realtime</span></div><div id="feed"><div class="card post muted">Loading posts...</div></div></div>
+    <div id="profile" class="view"></div><div id="friends" class="view"></div><div id="chat" class="view"></div><div id="notifications" class="view"></div>
+  </section>
+  <aside class="right"><div class="card side"><div class="panel-title">Friend Requests</div><div id="requestMini"></div></div><div class="card side" style="margin-top:14px"><div class="panel-title">Contacts</div><div id="contactsMini"></div></div></aside>
+</main>
+<nav class="bottom"><button class="nav active" data-view="home"><span>🏠</span><small>Home</small></button><button class="nav" data-view="friends"><span>👥</span><small>Friends</small></button><button class="nav" data-view="chat"><span>💬</span><small>Chat</small></button><button class="nav notice-btn" data-view="notifications"><span>🔔</span><small>Notice</small><em id="noticeDotMobile" class="notice-dot hidden">0</em></button><button class="nav" data-view="profile"><span>👤</span><small>Me</small></button></nav>
+</div>
+<button class="fab" id="quickAdd" title="Quick post">＋</button><div id="modal" class="modal premium-modal"><div class="modal-box"><div class="row between"><h3 id="modalTitle"></h3><button class="icon" id="closeModal">✕</button></div><div id="modalBody"></div></div></div><div id="toast" class="toast"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, getDocs, collection, query, where, orderBy, serverTimestamp, addDoc, updateDoc, deleteDoc, onSnapshot, limit, getCountFromServer } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+const firebaseConfig={
+  "apiKey": "AIzaSyA04x1Iqxah2dxqMoR_OS1ZNIpzcUVzivE",
+  "authDomain": "rtn-chat-final.firebaseapp.com",
+  "projectId": "rtn-chat-final",
+  "storageBucket": "rtn-chat-final.firebasestorage.app",
+  "messagingSenderId": "611169479435",
+  "appId": "1:611169479435:web:3ce902d7a2a44055be100e",
+  "measurementId": "G-HERPT7Q6BX"
+};
+const app=initializeApp(firebaseConfig), auth=getAuth(app), db=getFirestore(app);
+const CLOUDINARY_CLOUD_NAME="dzethfp7x";
+const CLOUDINARY_UPLOAD_PRESET="rtn_chat";
+const CLOUDINARY_UPLOAD_URL=`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/auto/upload`;
+const MAX_UPLOAD_MB=10, MAX_UPLOAD_BYTES=MAX_UPLOAD_MB*1024*1024;
+const STORY_LIFETIME_MS=12*60*60*1000; // 12 hour story expiry
+let latestStoryDocs=[];
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const clean=s=>(s||"").trim().toLowerCase().replace(/[^a-z0-9_]/g,"").slice(0,24);
+const hiddenEmail=u=>`${clean(u)}@rtnchat.app`;
+const avatarFor=n=>`https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(n||"RTN")}&backgroundColor=0866ff,00a3ff,7c3aed&fontWeight=800`;
+let me=null, unsubs=[], chatUnsub=null, typingUnsub=null, activeChat=null, replyToMsg=null, typingTimer=null, hiddenPostIds=new Set();
+const PROFILE_CACHE_MS=180000, USERS_CACHE_MS=60000, FRIEND_CACHE_MS=25000;
+const profileCache=new Map(); let usersCache={at:0,data:[]}, friendsCache={at:0,data:[]}, pendingCache={at:0,data:null}, blockCache={at:0,data:new Set()};
+let notifyFirstSnap=true, audioCtx=null, lastNotifyAt=0;
+let currentCall=null, peer=null, localStream=null, remoteStream=null, callUnsub=null;
+const rtcConfig={iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}]};
+function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2600)}
+function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function showModal(t,b){const box=document.querySelector(".modal-box"); if(box)box.style.padding="18px";$("#modalTitle").textContent=t;$("#modalBody").innerHTML=b;$("#modal").classList.add("show");document.body.style.overflow="hidden"}
+function closeModal(){const m=$("#modal"); if(m)m.classList.remove("show"); const body=$("#modalBody"); if(body)body.innerHTML="";document.body.style.overflow="";}
+$("#closeModal").onclick=()=>closeModal();
+$("#modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#modal")?.classList.contains("show"))closeModal()});
+window.closeModal=closeModal;
+async function safe(label, fn){try{return await fn()}catch(e){console.error(label,e);toast(label+": "+(e?.message||"error"));return null}}
+function actionBtn(label, fn, cls="btn xs"){return `<button class="${cls}" onclick="${fn}">${label}</button>`}
+function initNotifySound(){
+  try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)(); if(audioCtx.state==="suspended")audioCtx.resume();}catch(e){}
+}
+document.addEventListener("click",initNotifySound,{once:true});
+function playNotify(){
+  try{
+    initNotifySound(); if(!audioCtx)return;
+    const now=Date.now(); if(now-lastNotifyAt<700)return; lastNotifyAt=now;
+    const o=audioCtx.createOscillator(), g=audioCtx.createGain();
+    o.type="sine"; o.frequency.setValueAtTime(880,audioCtx.currentTime); o.frequency.exponentialRampToValueAtTime(1320,audioCtx.currentTime+.08);
+    g.gain.setValueAtTime(.0001,audioCtx.currentTime); g.gain.exponentialRampToValueAtTime(.22,audioCtx.currentTime+.02); g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.18);
+    o.connect(g); g.connect(audioCtx.destination); o.start(); o.stop(audioCtx.currentTime+.2);
+  }catch(e){console.warn("notify sound",e)}
+}
+function updateNoticeBadge(n){
+  ["noticeDot","noticeDotMobile"].forEach(id=>{const el=$("#"+id);if(!el)return;el.textContent=n>9?"9+":String(n);el.classList.toggle("hidden",!n)});
+}
+function notifyToast(text){const el=document.createElement("div");el.className="msg-unread-toast show";el.textContent=text;document.body.appendChild(el);setTimeout(()=>{el.classList.remove("show");setTimeout(()=>el.remove(),300)},3200)}
+async function browserNotify(text){
+  try{
+    if(!("Notification" in window))return;
+    if(Notification.permission==="default")await Notification.requestPermission();
+    if(Notification.permission==="granted")new Notification("RTN Chat",{body:text,icon:me?.avatar||""});
+  }catch(e){}
+}
+window.enableNotify=async()=>{initNotifySound();await browserNotify("Notification enabled");toast("Notification sound ready")};
+function pair(a,b){return [a,b].sort().join("_")}
+async function profile(uid){
+  if(!uid)return null;
+  const hit=profileCache.get(uid);
+  if(hit && Date.now()-hit.at<PROFILE_CACHE_MS)return hit.data;
+  const s=await getDoc(doc(db,"users",uid));
+  const data=s.exists()?{id:uid,...s.data()}:null;
+  if(data)profileCache.set(uid,{at:Date.now(),data});
+  return data;
+}
+async function allProfiles(force=false){
+  if(!force && usersCache.data.length && Date.now()-usersCache.at<USERS_CACHE_MS)return usersCache.data;
+  const s=await getDocs(query(collection(db,"users"),limit(120)));
+  const data=s.docs.map(d=>({id:d.id,...d.data()}));
+  data.forEach(u=>profileCache.set(u.id,{at:Date.now(),data:u}));
+  usersCache={at:Date.now(),data};
+  return data;
+}
+async function toDataURL(file){
+  return await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(file)});
+}
+async function compressImageBlob(file,maxWidth=1800,quality=.84){
+  const img=await new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=URL.createObjectURL(file)});
+  let w=img.width,h=img.height,scale=Math.min(1,maxWidth/Math.max(w,h));w=Math.round(w*scale);h=Math.round(h*scale);
+  const c=document.createElement("canvas");c.width=w;c.height=h;c.getContext("2d").drawImage(img,0,0,w,h);
+  return await new Promise(res=>c.toBlob(b=>res(b||file),"image/jpeg",quality));
+}
+async function uploadFile(file,folder="uploads"){
+  if(!file)return "";
+  const allowed=/^(image\/|video\/|audio\/|application\/pdf)/.test(file.type||"") || /\.(jpg|jpeg|png|webp|gif|mp4|webm|mp3|m4a|pdf)$/i.test(file.name||"");
+  if(!allowed){toast("Only image, video, audio or PDF upload koro");return ""}
+  let upload=file;
+  if(file.size>MAX_UPLOAD_BYTES && file.type.startsWith("image/")){
+    upload=await compressImageBlob(file,1600,.78);
+  }
+  if(upload.size>MAX_UPLOAD_BYTES){toast(`File ${MAX_UPLOAD_MB}MB এর নিচে দাও`);return ""}
+  try{
+    const form=new FormData();
+    form.append("file",upload,file.name||"rtn_upload");
+    form.append("upload_preset",CLOUDINARY_UPLOAD_PRESET);
+    const res=await fetch(CLOUDINARY_UPLOAD_URL,{method:"POST",body:form});
+    const data=await res.json().catch(()=>({}));
+    if(!res.ok || !data.secure_url){
+      console.error("Cloudinary upload error",data);
+      throw new Error(data?.error?.message||"Cloudinary upload failed");
+    }
+    return data.secure_url;
+  }catch(e){
+    console.error(e);
+    if(file.size<750000 && file.type.startsWith("image/")){
+      toast("Cloudinary failed, small image fallback used");
+      return await toDataURL(file);
+    }
+    toast("Upload failed. Cloudinary preset/cloud name check koro.");
+    return "";
+  }
+}
+
+function stampMs(v){
+  if(!v)return 0;
+  if(typeof v.toMillis==="function")return v.toMillis();
+  if(typeof v.seconds==="number")return v.seconds*1000;
+  const t=new Date(v).getTime();
+  return Number.isFinite(t)?t:0;
+}
+function storyExpiryMs(story){
+  const exp=stampMs(story.expiresAt);
+  if(exp)return exp;
+  const created=stampMs(story.createdAt);
+  return created?created+STORY_LIFETIME_MS:0;
+}
+function isStoryLive(story){return storyExpiryMs(story)>Date.now()}
+function timeLeftText(ms){
+  const left=Math.max(0,ms-Date.now());
+  const h=Math.floor(left/3600000), m=Math.floor((left%3600000)/60000);
+  return h>0?`${h}h left`:`${m}m left`;
+}
+function drawStories(arr){
+  const live=arr.filter(isStoryLive).sort((a,b)=>storyExpiryMs(a)-storyExpiryMs(b));
+  $("#stories").innerHTML=live.map(s=>`<div class="story" onclick="viewStory('${s.id}')"><img src="${s.image||s.user.avatar}"><span class="plus">👁</span><b>${esc(s.user.fullName)}<br>${esc(s.text)}<br><small>${timeLeftText(storyExpiryMs(s))}</small></b></div>`).join("")||`<div class="story"><b>No active story</b></div>`;
+}
+setInterval(()=>{if(latestStoryDocs.length)drawStories(latestStoryDocs)},60000);
+
+async function saveNewProfile(user,username){const p={uid:user.uid,username:clean(username),fullName:username,avatar:avatarFor(username),cover:"",bio:"",note:"",verified:false,blueRequested:false,banned:false,online:true,createdAt:serverTimestamp(),lastSeen:serverTimestamp()};await setDoc(doc(db,"users",user.uid),p,{merge:true});await setDoc(doc(db,"usernames",clean(username)),{uid:user.uid,username:clean(username)},{merge:true});await updateProfile(user,{displayName:username,photoURL:p.avatar});return {id:user.uid,...p}}
+$("#showPass").onclick=e=>{e.preventDefault();const p=$("#password");p.type=p.type==="password"?"text":"password";$("#showPass").textContent=p.type==="password"?"🙈":"🙉"};
+$("#registerBtn").onclick=async()=>{const username=clean($("#username").value),pass=$("#password").value;if(!username||pass.length<6)return toast("Username আর 6+ character password দাও");try{const u=await getDoc(doc(db,"usernames",username));if(u.exists())return toast("এই username already আছে");const cred=await createUserWithEmailAndPassword(auth,hiddenEmail(username),pass);me=await saveNewProfile(cred.user,username);toast("Account created")}catch(e){toast(e.message.replace("Firebase:",""))}}
+$("#loginBtn").onclick=async()=>{const username=clean($("#username").value),pass=$("#password").value;if(!username||!pass)return toast("Username/password দাও");try{await signInWithEmailAndPassword(auth,hiddenEmail(username),pass)}catch(e){toast("Login failed. Username/password check করো")}}
+$("#logoutBtn").onclick=async()=>{await signOut(auth);location.reload()};
+onAuthStateChanged(auth,async user=>{unsubs.forEach(u=>u());unsubs=[];if(chatUnsub)chatUnsub();if(!user){$("#auth").classList.remove("hidden");$("#app").classList.add("hidden");return}me=await profile(user.uid);if(!me)me=await saveNewProfile(user,user.email.split("@")[0]);if(me.banned){toast("Account banned");await signOut(auth);return}$("#auth").classList.add("hidden");$("#app").classList.remove("hidden");await setDoc(doc(db,"users",me.id),{online:true,lastSeen:serverTimestamp()},{merge:true});window.addEventListener("beforeunload",()=>setDoc(doc(db,"users",me.id),{online:false,lastSeen:serverTimestamp()},{merge:true}));renderShell();bindRealtime();openView("home")});
+function renderShell(){const av=me.avatar||avatarFor(me.fullName);$("#topAvatar").src=av;$("#leftAvatar").src=av;$("#composerAvatar").src=av;$("#leftName").innerHTML=`${esc(me.fullName)}${me.verified?'<span class="badge">✓</span>':''}`;$("#leftUser").textContent=me.username}
+$$(".nav").forEach(b=>b.onclick=()=>openView(b.dataset.view));
+$("#quickAdd").onclick=()=>openQuickPost();
+function previewFile(input,boxId="mediaPreview"){const box=$("#"+boxId);const f=input?.files?.[0];if(!box||!f)return;box.classList.remove("hidden");const url=URL.createObjectURL(f);box.innerHTML=f.type.startsWith("video")?`<video src="${url}" controls playsinline></video><p class="tiny muted">${esc(f.name)} · ${Math.round(f.size/1024/1024*10)/10}MB</p>`:`<img src="${url}"><p class="tiny muted">${esc(f.name)} · ${Math.round(f.size/1024/1024*10)/10}MB</p>`}
+setTimeout(()=>{const c=document.querySelector(".composer"),inp=$("#postImage");if(c&&inp){inp.addEventListener("change",()=>previewFile(inp));["dragenter","dragover"].forEach(ev=>c.addEventListener(ev,e=>{e.preventDefault();c.classList.add("dragover")}));["dragleave","drop"].forEach(ev=>c.addEventListener(ev,e=>{e.preventDefault();c.classList.remove("dragover")}));c.addEventListener("drop",e=>{if(e.dataTransfer.files[0]){inp.files=e.dataTransfer.files;previewFile(inp)}})}} ,800);
+
+$("#searchBox").addEventListener("keydown",e=>{if(e.key==="Enter")searchPeople()});
+async function searchPeople(){
+  const q=clean($("#searchBox").value);
+  if(!q)return toast("Search name/username dao");
+  const [usersAll,f,state,blocked]=await Promise.all([allProfiles(),friendIds(),pendingRequestMap(),blockedIds()]);
+  const users=usersAll.filter(u=>u.id!==me.id&&!u.banned&&!blocked.has(u.id)&&(clean(u.username).includes(q)||clean(u.fullName).includes(q))).slice(0,30);
+  const html=users.map(u=>{const isF=f.includes(u.id);const action=isF?`<button class="btn xs ghost" onclick="closeModal();openChatWith('${u.id}')">Message</button>`:state.inc.get(u.id)?`<button class="btn xs" onclick="acceptReq('${state.inc.get(u.id)}','${u.id}')">Accept</button>`:state.out.has(u.id)?`<button class="btn xs ghost" disabled>Requested</button>`:`<button class="btn xs" onclick="sendReq('${u.id}')">Add</button>`;return `<div class="person"><img onclick="showUser('${u.id}')" src="${u.avatar}"><div class="grow clickable" onclick="showUser('${u.id}')"><b>${esc(u.fullName)}${u.verified?'<span class="badge">✓</span>':''}</b><div class="tiny muted"><span class="status-dot ${u.online?'on':''}"></span>@${esc(u.username)}</div></div>${action}<button class="btn xs ghost" onclick="showUser('${u.id}')">View</button></div>`}).join("");
+  showModal("Search People", html||"<p class='muted'>No user found</p>");
+}
+$("#topAvatar").onclick=()=>openView("profile");$("#miniProfile").onclick=()=>openView("profile");
+$("#themeBtn").onclick=()=>{document.body.dataset.theme=document.body.dataset.theme==="dark"?"":"dark";localStorage.rtnTheme=document.body.dataset.theme||""};document.body.dataset.theme=localStorage.rtnTheme||"";
+function updateNet(){const chip=$("#feedChip"); if(chip)chip.textContent=navigator.onLine?"Live realtime":"Offline mode"; if(!navigator.onLine)toast("Internet offline")}
+window.addEventListener("online",updateNet);window.addEventListener("offline",updateNet);setTimeout(updateNet,500);
+function setActiveView(v){$$(".view").forEach(x=>x.classList.remove("active"));$("#"+v).classList.add("active");$$(".nav").forEach(b=>b.classList.toggle("active",b.dataset.view===v))}
+async function openView(v){setActiveView(v);if(v==="profile")renderProfile();if(v==="friends")await renderFriends();if(v==="chat")await renderChat();if(v==="notifications")await renderNotifications()}
+function bindRealtime(){
+  notifyFirstSnap=true;
+  $("#feed").innerHTML=`<div class="card post"><div class="skeleton"></div></div>`;
+  unsubs.push(onSnapshot(query(collection(db,"posts"),orderBy("createdAt","desc"),limit(25)),renderFeed,e=>{$("#feed").innerHTML=`<div class="card post danger-zone">Post load error: ${esc(e.message)}</div>`}));
+  unsubs.push(onSnapshot(query(collection(db,"stories"),orderBy("createdAt","desc"),limit(50)),renderStories,e=>toast("Story load error: "+e.message)));
+  unsubs.push(onSnapshot(query(collection(db,"notes"),orderBy("createdAt","desc"),limit(12)),renderNotes,e=>toast("Note load error: "+e.message)));
+  unsubs.push(onSnapshot(query(collection(db,"requests"),where("to","==",me.id),where("status","==","pending")),s=>{pendingCache.at=0;renderMiniReq(s.docs.map(d=>({id:d.id,...d.data()})))},e=>{$("#requestMini").innerHTML=`<p class="tiny muted">Friend request load error. Rules publish check.</p>`;console.error(e)}));
+  unsubs.push(onSnapshot(query(collection(db,"notifications"),where("to","==",me.id),where("read","==",false)),s=>{
+    updateNoticeBadge(s.size);
+    document.title=s.size?`(${s.size}) RTN Chat`:"RTN Chat";
+    if(notifyFirstSnap){notifyFirstSnap=false;return}
+    s.docChanges().forEach(ch=>{if(ch.type==="added"){const x=ch.doc.data();const msg=x.text||"New notification";playNotify();notifyToast(msg);if(x.type==="message"||x.type==="friend_request"||x.type==="call")browserNotify(msg)}});
+  },e=>console.error(e)));
+  listenIncomingCalls()
+}
+async function person(uid){return await profile(uid)||{id:uid,fullName:"User",username:"user",avatar:avatarFor("User")}}
+async function blockedIds(force=false){
+  if(!force && Date.now()-blockCache.at<FRIEND_CACHE_MS)return blockCache.data;
+  try{
+    const s=await getDocs(query(collection(db,"blocks"),where("users","array-contains",me.id)));
+    const ids=[];
+    s.forEach(d=>{const x=d.data();const users=x.users||[];if(users.includes(me.id))ids.push(...users.filter(u=>u!==me.id))});
+    blockCache={at:Date.now(),data:new Set(ids)};
+    return blockCache.data
+  }catch(e){console.warn("blockedIds",e);return new Set()}
+}
+function mediaHTML(p){const url=p.media||p.image||p.file||"";if(!url)return "";const type=(p.mediaType||"").toLowerCase();if(type.startsWith("video")||/\.(mp4|webm|mov)(\?|$)/i.test(url))return `<video class="post-media" controls playsinline src="${url}"></video>`;return `<img class="post-media" loading="lazy" src="${url}">`}
+function postPrivacy(p){return p.privacy==="friends"?"👥 friends":"🌍 public"}
+async function renderFeed(snap){
+  const [blocked,friends]=await Promise.all([blockedIds(),friendIds()]);
+  const friendSet=new Set(friends);
+  const docs=snap.docs.slice(0,25);
+  const arr=(await Promise.all(docs.map(async d=>({id:d.id,...d.data(),user:await person(d.data().uid)}))))
+    .filter(p=>!hiddenPostIds.has(p.id)&&!blocked.has(p.uid)&&(p.privacy!=="friends"||p.uid===me.id||friendSet.has(p.uid)));
+  $("#feed").innerHTML=arr.map(p=>`<article class="card post compact-post" id="post-${p.id}"><div class="post-head"><img class="clickable" onclick="showUser('${p.user.id}')" src="${p.user.avatar}" loading="lazy"><div class="grow"><div class="name clickable" onclick="showUser('${p.user.id}')">${esc(p.user.fullName)}${p.user.verified?'<span class="badge">✓</span>':''}</div><div class="tiny muted">@${esc(p.user.username)} · ${postPrivacy(p)} ${p.editedAt?'· edited':''}</div></div><div class="post-tools">${p.uid===me.id?`<button class="btn xs ghost" onclick="editPost('${p.id}')">Edit</button><button class="btn xs red" onclick="deletePost('${p.id}')">Delete</button>`:`<button class="btn xs ghost" onclick="hidePost('${p.id}')">Hide</button><button class="btn xs ghost" onclick="reportPost('${p.id}','${p.uid}')">Report</button>`}</div></div><div class="post-body">${esc(p.text||"")}</div>${mediaHTML(p)}<div class="stats"><span id="lc-${p.id}">… likes</span><span id="cc-${p.id}">… comments</span></div><div class="post-actions"><button onclick="likePost('${p.id}')">👍 <span>Like</span></button><button onclick="openComments('${p.id}')">💬 <span>Comment</span></button><button onclick="reactPost('${p.id}','❤️')">❤️ <span>Love</span></button><button onclick="sharePost('${p.id}')">↗ <span>Share</span></button><button onclick="savePost('${p.id}')">🔖 <span>Save</span></button></div><div id="comments-${p.id}"></div></article>`).join("")||`<div class="card post empty">No posts yet. Tap + to post.</div>`;
+  arr.forEach(p=>stats(p.id));
+}
+async function stats(pid){
+  try{
+    const [likes,comments]=await Promise.all([
+      getCountFromServer(collection(db,"posts",pid,"likes")),
+      getCountFromServer(collection(db,"posts",pid,"comments"))
+    ]);
+    const l=$("#lc-"+pid), c=$("#cc-"+pid); if(l)l.textContent=`${likes.data().count} likes`; if(c)c.textContent=`${comments.data().count} comments`;
+    const latest=await getDocs(query(collection(db,"posts",pid,"comments"),orderBy("createdAt","desc"),limit(2)));
+    const el=$("#comments-"+pid); if(el)el.innerHTML=latest.docs.reverse().map(d=>`<div class="comment"><b>${esc(d.data().name)}:</b> ${esc(d.data().text)} ${d.data().react?`<span>${esc(d.data().react)}</span>`:""}</div>`).join("");
+  }catch(e){console.warn("stats",pid,e)}
+}
+window.likePost=async pid=>{const r=doc(db,"posts",pid,"likes",me.id);const s=await getDoc(r);if(s.exists()){await deleteDoc(r);toast("Like removed")}else{await setDoc(r,{uid:me.id,createdAt:serverTimestamp()},{merge:true});toast("Liked")}}
+window.reactPost=async(pid,r)=>{await setDoc(doc(db,"posts",pid,"likes",me.id),{uid:me.id,react:r,createdAt:serverTimestamp()},{merge:true});toast("Reacted")}
+window.editPost=async pid=>{const s=await getDoc(doc(db,"posts",pid));if(!s.exists())return;showModal("Edit Post",`<div class="field"><textarea id="editPostText">${esc(s.data().text||"")}</textarea></div><button class="btn full" onclick="savePostEdit('${pid}')">Save</button>`)}
+window.savePostEdit=async pid=>{await updateDoc(doc(db,"posts",pid),{text:$("#editPostText").value,editedAt:serverTimestamp()});$("#modal").classList.remove("show");toast("Post updated")}
+window.deletePost=async pid=>{if(confirm("Delete this post?")){try{await deleteDoc(doc(db,"posts",pid));toast("Post deleted")}catch(e){toast("Delete allowed only for owner/admin")}}}
+window.sharePost=async pid=>{const link=location.href.split("#")[0]+`#post-${pid}`;try{await navigator.clipboard.writeText(link);toast("Post link copied")}catch(e){toast("Share link: "+link)}}
+window.savePost=async pid=>{await setDoc(doc(db,"saved_posts",`${me.id}_${pid}`),{uid:me.id,postId:pid,createdAt:serverTimestamp()},{merge:true});toast("Saved")}
+window.hidePost=pid=>{hiddenPostIds.add(pid);const el=$(`#post-${pid}`);if(el)el.remove();toast("Hidden")}
+window.reportPost=async(pid,owner)=>{const reason=prompt("Report reason লিখুন", "Inappropriate content")||"Reported";try{await addDoc(collection(db,"reports"),{type:"post",postId:pid,targetUid:owner,from:me.id,reason,status:"pending",createdAt:serverTimestamp()});toast("Report sent")}catch(e){toast("Report failed")}}
+window.reportUser=async uid=>{const reason=prompt("User report reason", "Spam or abuse")||"Reported";try{await addDoc(collection(db,"reports"),{type:"user",targetUid:uid,from:me.id,reason,status:"pending",createdAt:serverTimestamp()});toast("Report sent")}catch(e){toast("Report failed")}}
+window.blockUser=async uid=>{if(!confirm("Block this user? You will not see each other posts/chat."))return;await setDoc(doc(db,"blocks",pair(me.id,uid)),{users:[me.id,uid],blocker:me.id,blocked:uid,createdAt:serverTimestamp()},{merge:true});toast("User blocked");$("#modal").classList.remove("show");openView("home")}
+window.openComments=pid=>{showModal("Comments",`<div id="commentList">Loading...</div><div class="field"><input id="commentInput" placeholder="Write a comment"></div><button class="btn full" onclick="sendComment('${pid}')">Send Comment</button>`);onSnapshot(query(collection(db,"posts",pid,"comments"),orderBy("createdAt","asc")),async s=>{const html=s.docs.map(d=>{const c=d.data();return `<div class="comment"><b>${esc(c.name)}:</b> ${esc(c.text)} ${c.react?`<span>${esc(c.react)}</span>`:""}<div class="row wrap" style="margin-top:6px"><button class="btn xs ghost" onclick="replyComment('${pid}','${d.id}')">Reply</button><button class="btn xs ghost" onclick="reactComment('${pid}','${d.id}','❤️')">❤️</button><button class="btn xs ghost" onclick="reactComment('${pid}','${d.id}','😂')">😂</button></div><div id="replies-${d.id}"></div></div>`}).join("")||'<p class="muted">No comments yet</p>';$("#commentList").innerHTML=html;s.docs.forEach(d=>loadReplies(pid,d.id))})}
+async function loadReplies(pid,cid){onSnapshot(query(collection(db,"posts",pid,"comments",cid,"replies"),orderBy("createdAt","asc")),s=>{const el=$(`#replies-${cid}`);if(el)el.innerHTML=s.docs.map(r=>`<div class="comment reply"><b>${esc(r.data().name)}:</b> ${esc(r.data().text)}</div>`).join("")})}
+window.sendComment=async pid=>{const t=$("#commentInput").value.trim();if(!t)return;await addDoc(collection(db,"posts",pid,"comments"),{uid:me.id,name:me.fullName,text:t,createdAt:serverTimestamp()});$("#commentInput").value=""}
+window.replyComment=(pid,cid)=>showModal("Reply",`<div class="field"><input id="replyInput" placeholder="Write reply"></div><button class="btn full" onclick="sendReply('${pid}','${cid}')">Send Reply</button>`)
+window.sendReply=async(pid,cid)=>{const t=$("#replyInput").value.trim();if(!t)return;await addDoc(collection(db,"posts",pid,"comments",cid,"replies"),{uid:me.id,name:me.fullName,text:t,createdAt:serverTimestamp()});$("#modal").classList.remove("show");toast("Reply sent")}
+window.reactComment=async(pid,cid,r)=>{await setDoc(doc(db,"posts",pid,"comments",cid),{react:r},{merge:true});toast("Comment reacted")}
+function openQuickPost(){showModal("Create Post",`<div class="field"><textarea id="quickPostText" placeholder="What's on your mind?"></textarea></div><div class="field"><select id="quickPrivacy" style="width:100%;padding:12px;border-radius:14px;background:var(--card2);color:var(--text);border:1px solid var(--line)"><option value="public">Public</option><option value="friends">Friends only</option></select></div><div class="field"><input id="quickPostFile" type="file" accept="image/*,video/*"></div><button class="btn full" onclick="createQuickPost()">Post Now</button>`)}
+window.createQuickPost=async()=>{const text=$("#quickPostText").value.trim();const file=$("#quickPostFile").files[0];let url="",type="";if(file){url=await uploadFile(file,"posts");type=file.type}if(!text&&!url)return toast("Text or media dao");await addDoc(collection(db,"posts"),{uid:me.id,text:text||"Media post",media:url,image:url,mediaType:type,privacy:$("#quickPrivacy").value,createdAt:serverTimestamp()});$("#modal").classList.remove("show");toast("Posted")}
+async function createTextPost(){const t=$("#postText").value.trim();if(!t)return toast("Post text লিখো");await addDoc(collection(db,"posts"),{uid:me.id,text:t,image:"",media:"",mediaType:"",privacy:"public",createdAt:serverTimestamp()});$("#postText").value="";toast("Posted")}
+$("#postBtn").onclick=createTextPost;
+$("#postText").addEventListener("keydown",async e=>{if(e.key==="Enter"&&!e.shiftKey&&$("#postText").value.trim())await createTextPost()});
+$("#photoBtn").onclick=()=>$("#postImage").click();$("#postImage").onchange=async e=>{const file=e.target.files[0];if(!file)return;$("#mediaPreview").classList.remove("hidden");$("#mediaPreview").textContent=`Uploading ${file.name}...`;const url=await uploadFile(file,"posts");if(!url){$("#mediaPreview").classList.add("hidden");return}await addDoc(collection(db,"posts"),{uid:me.id,text:$("#postText").value.trim()||"Media post",media:url,image:url,mediaType:file.type,privacy:"public",createdAt:serverTimestamp()});$("#postText").value="";$("#mediaPreview").classList.add("hidden");toast("Media posted")}
+$("#storyBtn").onclick=()=>showModal("Add Story",`<div class="field"><input id="stText" placeholder="Story text"></div><div class="field"><input id="stFile" type="file" accept="image/*,video/*"></div><button class="btn full" onclick="createStory()">Add Story</button>`);
+window.createStory=async()=>{const file=$("#stFile").files[0];const url=file?await uploadFile(file,"stories"):me.avatar;await addDoc(collection(db,"stories"),{uid:me.id,text:$("#stText").value||"Story",image:url||me.avatar,media:url||me.avatar,mediaType:file?file.type:"image",createdAt:serverTimestamp(),expiresAt:new Date(Date.now()+STORY_LIFETIME_MS)});$("#modal").classList.remove("show");toast("Story added for 12 hours")}
+$("#noteBtn").onclick=()=>showModal("Add Note",`<div class="field"><input id="ntText" placeholder="Your note"></div><button class="btn full" onclick="createNote()">Add Note</button>`);
+window.createNote=async()=>{await addDoc(collection(db,"notes"),{uid:me.id,text:$("#ntText").value||"Hello 👋",createdAt:serverTimestamp()});$("#modal").classList.remove("show")}
+
+async function renderStories(snap){latestStoryDocs=await Promise.all(snap.docs.map(async d=>({id:d.id,...d.data(),user:await person(d.data().uid)})));drawStories(latestStoryDocs)}
+window.viewStory=async id=>{const s=await getDoc(doc(db,"stories",id));if(!s.exists())return;const data=s.data();if(!isStoryLive(data)){toast("Story expired");return}await setDoc(doc(db,"stories",id,"views",me.id),{uid:me.id,name:me.fullName,createdAt:serverTimestamp()},{merge:true});let viewCount=1;try{const views=await getDocs(collection(db,"stories",id,"views"));viewCount=views.size}catch(e){console.warn("story views",e)}const percent=Math.max(4,Math.min(100,Math.round((Date.now()-stampMs(data.createdAt))/STORY_LIFETIME_MS*100)));const media=(data.media||data.image||"");const mediaView=(data.mediaType||"").startsWith("video")?`<video src="${media}" controls autoplay playsinline style="width:100%;border-radius:22px;max-height:70vh;background:#000"></video>`:`<img src="${media}" style="width:100%;border-radius:22px;max-height:70vh;object-fit:contain;background:#000">`;showModal("Story",`<div class="story-progress"><span style="width:${percent}%"></span></div>${mediaView}<h3>${esc(data.text)}</h3><p class="tiny muted">Auto expire: ${timeLeftText(storyExpiryMs(data))} · 👁 ${viewCount} views</p>${data.uid===me.id?`<button class="btn red full" onclick="deleteStory('${id}')">Delete Story</button>`:""}`)}
+window.deleteStory=async id=>{if(confirm("Delete story?")){await deleteDoc(doc(db,"stories",id));$("#modal").classList.remove("show");toast("Story deleted")}}
+async function renderNotes(snap){const arr=await Promise.all(snap.docs.map(async d=>({id:d.id,...d.data(),user:await person(d.data().uid)})));$("#notes").innerHTML=arr.map(n=>`<div class="note"><b>${esc(n.user.fullName)}</b>${esc(n.text)}</div>`).join("")}
+async function friendIds(force=false){
+  if(!force && friendsCache.data.length && Date.now()-friendsCache.at<FRIEND_CACHE_MS)return friendsCache.data;
+  try{
+    const s=await getDocs(query(collection(db,"friends"),where("users","array-contains",me.id)));
+    let ids=[];
+    s.forEach(d=>{const u=d.data().users||[];if(u.includes(me.id))ids.push(...u.filter(x=>x!==me.id))});
+    friendsCache={at:Date.now(),data:[...new Set(ids)]};
+    return friendsCache.data
+  }catch(e){console.error("friendIds error",e);toast("Friends load error. Firestore rules publish koro.");return []}
+}
+async function pendingRequestMap(force=false){
+  if(!force && pendingCache.data && Date.now()-pendingCache.at<FRIEND_CACHE_MS)return pendingCache.data;
+  const out=new Set(), inc=new Map();
+  try{const o=await getDocs(query(collection(db,"requests"),where("from","==",me.id),where("status","==","pending")));o.forEach(d=>out.add(d.data().to))}catch(e){console.warn("outgoing requests",e)}
+  try{const i=await getDocs(query(collection(db,"requests"),where("to","==",me.id),where("status","==","pending")));i.forEach(d=>inc.set(d.data().from,d.id))}catch(e){console.warn("incoming requests",e)}
+  pendingCache={at:Date.now(),data:{out,inc}};
+  return pendingCache.data
+}
+async function renderFriends(){
+  const root=$("#friends");
+  root.innerHTML=`<div class="card side"><div class="skeleton"></div></div>`;
+  const blocked=await blockedIds();
+  const f=await friendIds(true);
+  const {out,inc}=await pendingRequestMap(true);
+  let users=[];
+  try{users=(await allProfiles(true)).filter(u=>u.id!==me.id&&!u.banned&&!blocked.has(u.id))}catch(e){root.innerHTML=`<div class="card side danger-zone">Users load error: ${esc(e.message)}</div>`;return}
+  const incomingRows=await Promise.all([...inc.entries()].map(async ([from,id])=>({id,from,fromUser:await person(from)})));
+  root.innerHTML=`<div class="card side"><div class="row between"><div class="panel-title">Friend Requests</div><button class="btn xs ghost" onclick="renderFriends()">Refresh</button></div><div id="incomingReqs"></div></div><div class="card side search-card" style="margin-top:14px"><div class="panel-title">People Search</div><input id="peopleFilter" class="people-filter" placeholder="Search people by name or username"><div class="people-count">${users.length} people loaded</div></div><div class="card side" style="margin-top:14px"><div class="panel-title">People You May Know</div><div id="peopleRows">${users.map(u=>userRow(u,f.includes(u.id),out.has(u.id),inc.get(u.id))).join("")||'<p class="muted">No user found</p>'}</div></div>`;
+  $("#incomingReqs").innerHTML=incomingRows.map(r=>`<div class="person"><img onclick="showUser('${r.fromUser.id}')" src="${r.fromUser.avatar}"><div class="grow"><b>${esc(r.fromUser.fullName)}</b><div class="tiny muted">@${esc(r.fromUser.username)} sent request</div></div><button class="btn xs" onclick="acceptReq('${r.id}','${r.from}')">Accept</button><button class="btn xs ghost" onclick="rejectReq('${r.id}')">Reject</button></div>`).join("")||'<p class="muted">No request</p>';
+  const pf=$("#peopleFilter");if(pf)pf.oninput=()=>{const q=clean(pf.value);$$("#peopleRows .person").forEach(el=>el.classList.toggle("hidden",q&&!el.dataset.search.includes(q)))};
+}
+function userRow(u,isF,pendingOut,incomingId){
+  const action=isF?`<button class="btn xs ghost" onclick="openChatWith('${u.id}')">SMS</button>`:incomingId?`<button class="btn xs" onclick="acceptReq('${incomingId}','${u.id}')">Accept</button>`:pendingOut?`<button class="btn xs ghost" disabled>Requested</button>`:`<button class="btn xs" onclick="sendReq('${u.id}')">Add Friend</button>`;
+  return `<div class="person" data-search="${esc(clean(u.fullName)+' '+clean(u.username))}"><img onclick="showUser('${u.id}')" src="${u.avatar}" loading="lazy"><div class="grow clickable" onclick="showUser('${u.id}')"><b>${esc(u.fullName)}${u.verified?'<span class="badge">✓</span>':''}</b><div class="tiny muted"><span class="status-dot ${u.online?'on':''}"></span>@${esc(u.username)}</div></div>${action}<button class="btn xs ghost" onclick="showUser('${u.id}')">View</button></div>`
+}
+window.sendReq=async to=>{
+  if(!to||to===me.id)return toast("নিজেকে request পাঠানো যাবে না");
+  try{
+    const existingOut=await getDocs(query(collection(db,"requests"),where("from","==",me.id),where("to","==",to),where("status","==","pending")));
+    if(!existingOut.empty)return toast("Already requested");
+    const existingIn=await getDocs(query(collection(db,"requests"),where("from","==",to),where("to","==",me.id),where("status","==","pending")));
+    if(!existingIn.empty){toast("এই user আগে request পাঠিয়েছে. Accept করো.");openView("friends");return}
+    await addDoc(collection(db,"requests"),{from:me.id,to,status:"pending",createdAt:serverTimestamp()});
+    await addDoc(collection(db,"notifications"),{to,from:me.id,type:"friend_request",text:`${me.fullName} sent you a friend request`,read:false,createdAt:serverTimestamp()});
+    toast("Request sent");
+    pendingCache.at=0; playNotify();
+    if($("#modal")?.classList.contains("show"))showUser(to);
+    await renderFriends();
+  }catch(e){console.error("sendReq",e);toast("Request failed: Firestore rules publish/index check")}
+}
+window.acceptReq=async(id,from)=>{
+  try{
+    await updateDoc(doc(db,"requests",id),{status:"accepted",acceptedAt:serverTimestamp()});
+    const cid=pair(me.id,from);
+    await setDoc(doc(db,"friends",cid),{users:[me.id,from],createdAt:serverTimestamp(),updatedAt:serverTimestamp()},{merge:true});
+    await setDoc(doc(db,"chats",cid),{users:[me.id,from],updatedAt:serverTimestamp()},{merge:true});
+    await addDoc(collection(db,"notifications"),{to:from,from:me.id,type:"friend_accept",text:`${me.fullName} accepted your friend request`,read:false,createdAt:serverTimestamp()});
+    toast("Friend accepted");
+    friendsCache.at=0; pendingCache.at=0; playNotify();
+    closeModal();
+    await renderFriends();
+    await renderChat();
+  }catch(e){console.error("acceptReq",e);toast("Accept failed: "+(e?.message||"rules/index check"))}
+}
+window.rejectReq=async id=>{try{await updateDoc(doc(db,"requests",id),{status:"rejected",rejectedAt:serverTimestamp()});pendingCache.at=0;toast("Request rejected");await renderFriends()}catch(e){toast("Reject failed")}}
+async function renderMiniReq(arr){const reqs=await Promise.all(arr.slice(0,5).map(async r=>({...r,fromUser:await person(r.from)})));$("#requestMini").innerHTML=reqs.map(r=>`<div class="person"><img onclick="showUser('${r.fromUser.id}')" src="${r.fromUser.avatar}"><div class="grow"><b>${esc(r.fromUser.fullName)}</b><div class="tiny muted">wants to be friends</div></div><button class="btn xs" onclick="acceptReq('${r.id}','${r.from}')">Accept</button></div>`).join("")||'<p class="tiny muted">No request</p>'}
+window.showUser=async uid=>{
+  const u=await profile(uid);if(!u)return toast("User not found");
+  const [f,state]=await Promise.all([friendIds(),pendingRequestMap()]);
+  const isF=f.includes(uid);
+  let postDocs=[];
+  try{const ps=await getDocs(query(collection(db,"posts"),where("uid","==",uid),limit(20)));postDocs=ps.docs.sort((a,b)=>stampMs(b.data().createdAt)-stampMs(a.data().createdAt))}catch(e){console.warn("profile posts",e)}
+  const action=uid===me.id?`<button class="btn" onclick="closeModal();openView('profile')">My Profile</button>`:isF?`<button class="btn" onclick="closeModal();openChatWith('${uid}')">Message</button><button class="btn ghost" onclick="unfriendUser('${uid}')">Unfriend</button>`:state.inc.get(uid)?`<button class="btn" onclick="acceptReq('${state.inc.get(uid)}','${uid}')">Accept Request</button>`:state.out.has(uid)?`<button class="btn ghost" disabled>Requested</button>`:`<button class="btn" onclick="sendReq('${uid}')">Add Friend</button>`;
+  const safeBio=esc(u.bio||"No bio");
+  const postList=postDocs.map(d=>`<div class="notice-card clickable" onclick="closeModal();location.hash='post-${d.id}';setActiveView('home')"><b>${esc((d.data().text||"Media post").slice(0,80))}</b><div class="tiny muted">${d.data().media?'Media post':'Text post'}</div></div>`).join("");
+  showModal(u.fullName,`<div class="user-hero"><div class="profile-cover">${u.cover?`<img src="${u.cover}">`:""}</div></div><div class="profile-main" style="margin-top:-50px"><img src="${u.avatar}"><div class="profile-info"><h2>${esc(u.fullName)}${u.verified?'<span class="badge">✓</span>':''}</h2><div class="muted"><span class="status-dot ${u.online?'on':''}"></span>@${esc(u.username)} · ${u.online?'Active now':'Offline'}</div><p>${safeBio}</p></div></div><div class="user-action-grid">${action}${uid!==me.id?`<button class="btn ghost" onclick="reportUser('${uid}')">Report</button><button class="btn red" onclick="blockUser('${uid}')">Block</button>`:""}</div><h3>Recent Posts</h3>${postList||'<p class="muted">No posts</p>'}`)
+}
+window.unfriendUser=async uid=>{if(!confirm("Remove this friend?"))return;const cid=pair(me.id,uid);try{await deleteDoc(doc(db,"friends",cid));toast("Friend removed");closeModal();openView("friends")}catch(e){toast("Unfriend failed: rules check")}}
+async function renderChat(){
+  const f=await friendIds(), ps=(await Promise.all(f.map(profile))).filter(Boolean);
+  window.rtnChatContacts=ps;
+  const contactHtml=(arr)=>arr.map(p=>`<div class="person chat-contact ${activeChat===p.id?'active':''}" onclick="openChatWith('${p.id}')"><img src="${p.avatar}" loading="lazy"><div class="grow"><b>${esc(p.fullName)}${p.verified?'<span class="badge">✓</span>':''}</b><div class="tiny muted"><span class="status-dot ${p.online?'on':''}"></span>${p.online?'Active now':'Offline'} · tap to SMS</div></div><span class="chat-action-pill">SMS</span></div>`).join("");
+  const list=contactHtml(ps);
+  $("#contactsMini").innerHTML=ps.slice(0,8).map(p=>`<div class="person" onclick="openChatWith('${p.id}')"><img src="${p.avatar}" loading="lazy"><div class="grow"><b>${esc(p.fullName)}</b><div class="tiny muted"><span class="online"></span> ${p.online?'Active':'Offline'}</div></div></div>`).join("")||'<p class="tiny muted">No contacts</p>';
+  $("#chat").innerHTML=`<div class="card side chat-shell"><div><div class="row between"><div><div class="panel-title">Messenger</div><p class="tiny muted">Friend select korlei niche SMS box open hobe.</p></div><button class="btn xs ghost" onclick="renderChat()">Refresh</button></div><input class="chat-search" id="chatSearch" placeholder="Search friend to SMS"><div class="chat-list" id="chatList">${list||'<div class="fast-empty">👥<br>Friend accept করলে chat list আসবে।</div>'}</div></div><div class="chat-window" id="chatWindow"><div class="chat-empty"><div><div class="big">💬</div><h3>Select a friend</h3><p>উপরের/বামের friend card চাপলে SMS box খুলবে। Message এলে sound + notification আসবে।</p><button class="btn" onclick="openView('friends')">Find Friends</button></div></div></div></div>`;
+  const cs=$("#chatSearch");if(cs)cs.oninput=()=>{const q=clean(cs.value);const arr=(window.rtnChatContacts||[]).filter(p=>clean(p.fullName).includes(q)||clean(p.username).includes(q));$("#chatList").innerHTML=contactHtml(arr)||'<p class="muted">No match</p>'}
+}
+window.openChatWith=async uid=>{
+  activeChat=uid;
+  const f=await friendIds();
+  if(!f.includes(uid))return toast("আগে friend request accept করতে হবে");
+  setActiveView("chat");
+  await renderChat();
+  const p=await profile(uid);if(!p)return toast("User not found");
+  const cid=pair(me.id,uid);
+  try{await setDoc(doc(db,"chats",cid),{users:[me.id,uid],updatedAt:serverTimestamp()},{merge:true})}catch(e){console.error("chat create",e);toast("Chat open failed: rules publish check");return}
+  $("#chatWindow").innerHTML=`<div class="chat-titlebar"><div class="row between wrap"><div class="row clickable" onclick="showUser('${uid}')"><img src="${p.avatar}" class="avatar"><div><b>${esc(p.fullName)}${p.verified?'<span class="badge">✓</span>':''}</b><div class="tiny muted">${p.online?'Active now':'Offline'} · Private SMS</div></div></div><div class="row"><button class="icon" title="Audio call" onclick="callUser('${uid}','audio')">📞</button><button class="icon" title="Video call" onclick="callUser('${uid}','video')">🎥</button></div></div><div class="chat-hint">Now chatting with ${esc(p.fullName)}. Type below 👇</div></div><div id="msgs" class="messages"></div><div id="typingBox" class="typing"></div><div id="replyBox" class="replying hidden"></div><div class="chat-input"><button class="icon" onclick="document.getElementById('chatFile').click()">📎</button><input id="msgText" placeholder="Write SMS to ${esc(p.fullName)}" autocomplete="off"><button class="btn" onclick="sendMsg('${uid}')">Send</button></div><input id="chatFile" type="file" class="hidden" accept="image/*,video/*,audio/*,.pdf,.doc,.docx">`;
+  setTimeout(()=>$("#chatWindow")?.scrollIntoView({behavior:"smooth",block:"start"}),120);
+  $("#chatFile").onchange=e=>sendMsg(uid,e.target.files[0]);
+  const inp=$("#msgText");inp.addEventListener("keydown",e=>{if(e.key==="Enter")sendMsg(uid)});inp.addEventListener("input",()=>setTyping(cid));inp.focus();
+  if(chatUnsub)chatUnsub();if(typingUnsub)typingUnsub();
+  let firstChatLoad=true;
+  chatUnsub=onSnapshot(query(collection(db,"chats",cid,"messages"),orderBy("createdAt","asc"),limit(80)),s=>{const el=$("#msgs");if(!el)return;el.innerHTML=s.docs.map(d=>bubble(cid,d.id,d.data())).join("")||'<div class="fast-empty">No SMS yet. Say hello 👋</div>';el.scrollTop=el.scrollHeight;s.docChanges().forEach(ch=>{if(firstChatLoad)return;const m=ch.doc.data();if(ch.type==="added"&&m.to===me.id){playNotify();notifyToast(`SMS from ${p.fullName}`)}});firstChatLoad=false;s.docs.forEach(d=>{const m=d.data();if(m.to===me.id&&m.status!=="read")updateDoc(doc(db,"chats",cid,"messages",d.id),{status:"read",readAt:serverTimestamp()}).catch(()=>{})})},e=>toast("Chat load error: "+e.message));
+  typingUnsub=onSnapshot(collection(db,"chats",cid,"typing"),s=>{let txt="";s.forEach(d=>{const x=d.data();if(d.id!==me.id&&x.typing)txt=`${esc(p.fullName)} is typing...`});const box=$("#typingBox");if(box)box.textContent=txt},e=>console.warn("typing",e));
+}
+async function setTyping(cid){await setDoc(doc(db,"chats",cid,"typing",me.id),{uid:me.id,typing:true,updatedAt:serverTimestamp()},{merge:true});clearTimeout(typingTimer);typingTimer=setTimeout(()=>setDoc(doc(db,"chats",cid,"typing",me.id),{uid:me.id,typing:false,updatedAt:serverTimestamp()},{merge:true}),1200)}
+window.sendMsg=async(uid,file=null)=>{try{const t=($("#msgText")?.value||"").trim();let data="",name="",type="";if(file){data=await uploadFile(file,"chat");name=file.name;type=file.type;if(!data)return}if(!t&&!data)return;const f=await friendIds();if(!f.includes(uid))return toast("Only friends can message");const cid=pair(me.id,uid);await setDoc(doc(db,"chats",cid),{users:[me.id,uid],updatedAt:serverTimestamp()},{merge:true});await addDoc(collection(db,"chats",cid,"messages"),{from:me.id,to:uid,text:t,file:data,fileName:name,fileType:type,replyTo:replyToMsg,status:"delivered",createdAt:serverTimestamp()});await addDoc(collection(db,"notifications"),{to:uid,from:me.id,type:"message",text:`${me.fullName} sent you a message`,read:false,createdAt:serverTimestamp()});replyToMsg=null;hideReplyBox();playNotify();if($("#msgText"))$("#msgText").value=""}catch(e){console.error("sendMsg",e);toast("Message failed: "+(e?.message||"rules check"))}}
+function bubble(cid,id,m){const mine=m.from===me.id;let file="";if(m.file){if((m.fileType||"").startsWith("image")||m.file.startsWith("data:image"))file=`<img src="${m.file}">`;else if((m.fileType||"").startsWith("video"))file=`<video controls playsinline style="max-width:250px;border-radius:14px;display:block" src="${m.file}"></video>`;else file=`<a class="filelink" href="${m.file}" download="${esc(m.fileName)}">📎 ${esc(m.fileName||"File")}</a>`}const rep=m.replyTo?`<div class="tiny" style="opacity:.75;border-left:2px solid currentColor;padding-left:6px;margin-bottom:4px">Reply: ${esc(m.replyTo.text||"media")}</div>`:"";return `<div class="bubble ${mine?'me':''}" id="msg-${id}">${rep}${file}${esc(m.text||"")}${m.reaction?`<div class="tiny">${esc(m.reaction)}</div>`:""}<div class="status">${mine?(m.status==="read"?"Read ✓✓":m.status==="delivered"?"Delivered ✓✓":"Sent ✓"):""}</div><div class="bubble-actions"><button onclick="replyMsg('${id}', '${esc((m.text||m.fileName||'media')).replace(/'/g,"\\'")}')">Reply</button><button onclick="reactMsg('${cid}','${id}','❤️')">❤️</button><button onclick="reactMsg('${cid}','${id}','😂')">😂</button></div></div>`}
+window.replyMsg=(id,text)=>{replyToMsg={id,text};const box=$("#replyBox");box.classList.remove("hidden");box.innerHTML=`<span>Replying: ${esc(text||"media")}</span><button class="btn xs ghost" onclick="replyToMsg=null;hideReplyBox()">Cancel</button>`;$("#msgText")?.focus()}
+function hideReplyBox(){const box=$("#replyBox");if(box){box.classList.add("hidden");box.innerHTML=""}}
+window.reactMsg=async(cid,id,r)=>{await updateDoc(doc(db,"chats",cid,"messages",id),{reaction:r,reactionBy:me.id});toast("Reacted")}
+
+window.callUser=async(uid,type)=>{await startRealCall(uid,type)}
+
+async function makePeer(callId, role){
+  const pc=new RTCPeerConnection(rtcConfig);
+  remoteStream=new MediaStream();
+  pc.ontrack=e=>{
+    e.streams[0].getTracks().forEach(t=>remoteStream.addTrack(t));
+    const rv=$("#remoteVideo"); if(rv)rv.srcObject=remoteStream;
+    const ra=$("#remoteAudio"); if(ra)ra.srcObject=remoteStream;
+  };
+  pc.onicecandidate=async e=>{
+    if(e.candidate){
+      const col=role==="caller"?"offerCandidates":"answerCandidates";
+      await addDoc(collection(db,"calls",callId,col), e.candidate.toJSON());
+    }
+  };
+  pc.onconnectionstatechange=()=>{
+    const s=$("#callState");
+    if(s)s.textContent=pc.connectionState;
+    if(["failed","closed","disconnected"].includes(pc.connectionState)){}
+  };
+  return pc;
+}
+async function getMedia(type){
+  return await navigator.mediaDevices.getUserMedia({audio:true, video:type==="video"});
+}
+function clearCallMedia(){
+  try{ if(localStream)localStream.getTracks().forEach(t=>t.stop()); }catch(e){}
+  try{ if(peer)peer.close(); }catch(e){}
+  try{ if(callUnsub)callUnsub(); }catch(e){}
+  localStream=null; remoteStream=null; peer=null; callUnsub=null; currentCall=null;
+}
+function renderCallScreen(title, other, type, incoming=false){
+  const videoHtml=type==="video"
+    ? `<video id="remoteVideo" class="remote-video" autoplay playsinline></video><video id="localVideo" class="local-video" autoplay muted playsinline></video>`
+    : `<div class="audio-face"><img src="${other.avatar}"><h2>${esc(other.fullName)}</h2><p>${incoming?'Incoming audio call':'Audio call connected'}</p><audio id="remoteAudio" autoplay></audio></div>`;
+  showModal(title, `<div class="call-modal"><div class="call-head"><b>${esc(other.fullName)} ${type==="video"?'🎥':'📞'}</b><span class="tiny muted" id="callState">${incoming?'Incoming':'Connecting...'}</span></div><div class="call-body">${videoHtml}<div class="call-controls"><button onclick="toggleMute()">🎙</button><button onclick="toggleCamera()">📷</button><button class="end" onclick="endCurrentCall()">⛔</button></div></div></div>`);
+  const box=document.querySelector(".modal-box"); if(box)box.style.padding="0";
+}
+async function startRealCall(uid,type){
+  if(!navigator.mediaDevices?.getUserMedia){toast("এই browser call support করে না");return}
+  const f=await friendIds(); if(!f.includes(uid)) return toast("Call only friends can do");
+  const other=await profile(uid);
+  try{
+    localStream=await getMedia(type);
+    const callRef=await addDoc(collection(db,"calls"),{from:me.id,to:uid,type,status:"ringing",createdAt:serverTimestamp()});
+    const callId=callRef.id; currentCall=callId;
+    renderCallScreen(type==="video"?"Video Call":"Audio Call",other,type,false);
+    const lv=$("#localVideo"); if(lv)lv.srcObject=localStream;
+    peer=await makePeer(callId,"caller");
+    localStream.getTracks().forEach(track=>peer.addTrack(track,localStream));
+    const offer=await peer.createOffer(); await peer.setLocalDescription(offer);
+    await setDoc(doc(db,"calls",callId),{offer:{type:offer.type,sdp:offer.sdp},status:"ringing"},{merge:true});
+    await addDoc(collection(db,"notifications"),{to:uid,from:me.id,type:"call",text:`${me.fullName} is calling you`,read:false,createdAt:serverTimestamp()});
+    callUnsub=onSnapshot(doc(db,"calls",callId),async snap=>{
+      const data=snap.data()||{};
+      if(data.answer && !peer.currentRemoteDescription){await peer.setRemoteDescription(new RTCSessionDescription(data.answer));}
+      if(data.status==="ended" || data.status==="rejected"){toast(data.status==="rejected"?"Call rejected":"Call ended");endCurrentCall(false);}
+    });
+    onSnapshot(collection(db,"calls",callId,"answerCandidates"),snap=>{
+      snap.docChanges().forEach(async change=>{
+        if(change.type==="added"){try{await peer.addIceCandidate(new RTCIceCandidate(change.doc.data()))}catch(e){}}
+      });
+    });
+  }catch(e){toast("Call permission/error: "+e.message); clearCallMedia();}
+}
+function listenIncomingCalls(){
+  unsubs.push(onSnapshot(query(collection(db,"calls"),where("to","==",me.id),where("status","==","ringing")),async snap=>{
+    snap.docChanges().forEach(async ch=>{
+      if(ch.type!=="added")return;
+      const call={id:ch.doc.id,...ch.doc.data()};
+      if(currentCall)return;
+      const caller=await profile(call.from);
+      playNotify();browserNotify(`${caller.fullName} is calling you`);showModal("Incoming Call",`<div class="incoming-card"><img src="${caller.avatar}"><h2>${esc(caller.fullName)}</h2><p class="muted">Incoming ${call.type==="video"?"video":"audio"} call</p><div class="incoming-actions"><button class="btn green" onclick="acceptCall('${call.id}')">Accept</button><button class="btn red" onclick="rejectCall('${call.id}')">Reject</button></div></div>`);
+    });
+  }));
+}
+window.acceptCall=async(callId)=>{
+  const callSnap=await getDoc(doc(db,"calls",callId)); if(!callSnap.exists())return;
+  const call=callSnap.data(); const caller=await profile(call.from); currentCall=callId;
+  try{
+    localStream=await getMedia(call.type);
+    renderCallScreen(call.type==="video"?"Video Call":"Audio Call",caller,call.type,true);
+    const lv=$("#localVideo"); if(lv)lv.srcObject=localStream;
+    peer=await makePeer(callId,"answer");
+    localStream.getTracks().forEach(track=>peer.addTrack(track,localStream));
+    await peer.setRemoteDescription(new RTCSessionDescription(call.offer));
+    const answer=await peer.createAnswer(); await peer.setLocalDescription(answer);
+    await setDoc(doc(db,"calls",callId),{answer:{type:answer.type,sdp:answer.sdp},status:"accepted"},{merge:true});
+    callUnsub=onSnapshot(doc(db,"calls",callId),snap=>{
+      const data=snap.data()||{};
+      if(data.status==="ended")endCurrentCall(false);
+    });
+    onSnapshot(collection(db,"calls",callId,"offerCandidates"),snap=>{
+      snap.docChanges().forEach(async change=>{
+        if(change.type==="added"){try{await peer.addIceCandidate(new RTCIceCandidate(change.doc.data()))}catch(e){}}
+      });
+    });
+  }catch(e){toast("Call permission/error: "+e.message); await rejectCall(callId);}
+}
+window.rejectCall=async(callId)=>{await setDoc(doc(db,"calls",callId),{status:"rejected"},{merge:true});$("#modal").classList.remove("show");}
+window.endCurrentCall=async(update=true)=>{
+  const id=currentCall;
+  if(update && id) await setDoc(doc(db,"calls",id),{status:"ended",endedAt:serverTimestamp()},{merge:true});
+  clearCallMedia();
+  $("#modal").classList.remove("show");
+  const box=document.querySelector(".modal-box"); if(box)box.style.padding="18px";
+}
+window.toggleMute=()=>{if(!localStream)return;localStream.getAudioTracks().forEach(t=>t.enabled=!t.enabled);toast("Mic toggled")}
+window.toggleCamera=()=>{if(!localStream)return;localStream.getVideoTracks().forEach(t=>t.enabled=!t.enabled);toast("Camera toggled")}
+
+function renderProfile(){
+  $("#profile").innerHTML=`<div class="card profile-card"><div class="profile-cover">${me.cover?`<img src="${me.cover}">`:""}</div><div class="profile-main"><img src="${me.avatar}"><div class="profile-info"><h2>${esc(me.fullName)}${me.verified?'<span class="badge">✓</span>':''}</h2><div class="muted"><span class="status-dot on"></span>@${esc(me.username)} · Online</div><p>${esc(me.bio||"No bio added")}</p></div></div><div class="user-action-grid"><button class="btn" onclick="editProfile()">✏️ Edit</button><button class="btn ghost" onclick="openView('friends')">👥 Friends</button><button class="btn ghost" onclick="openView('chat')">💬 Messages</button><button class="btn ghost" onclick="showSavedPosts()">🔖 Saved</button><button class="btn ghost" onclick="openSettings()">⚙️ Settings</button><button class="btn ghost" onclick="systemCheck()">✅ Check</button></div><div class="tabs"><button class="active">Posts</button><button onclick="editProfile()">About</button><button onclick="openView('friends')">Friends</button><button onclick="showSavedPosts()">Saved</button></div></div>`
+}
+window.editProfile=()=>showModal("Edit Profile",`<div class="field"><input id="eName" value="${esc(me.fullName)}"></div><div class="field"><textarea id="eBio" placeholder="Bio">${esc(me.bio||"")}</textarea></div><div class="field"><label>Avatar</label><input id="eAvatar" type="file" accept="image/*"></div><div class="field"><label>Cover</label><input id="eCover" type="file" accept="image/*"></div><button class="btn full" onclick="saveProfileEdit()">Save</button>`)
+window.saveProfileEdit=async()=>{let av=me.avatar,cv=me.cover;if($("#eAvatar").files[0])av=await uploadFile($("#eAvatar").files[0],"avatars");if($("#eCover").files[0])cv=await uploadFile($("#eCover").files[0],"covers");await setDoc(doc(db,"users",me.id),{fullName:$("#eName").value,bio:$("#eBio").value,avatar:av,cover:cv},{merge:true});me=await profile(me.id);$("#modal").classList.remove("show");renderShell();renderProfile()}
+window.showSavedPosts=async()=>{const s=await getDocs(query(collection(db,"saved_posts"),where("uid","==",me.id),limit(50)));showModal("Saved Posts",s.docs.map(d=>`<div class="notice-card"><b>Post saved</b><div class="tiny muted">${esc(d.data().postId)}</div></div>`).join("")||"<p class='muted'>No saved post</p>")}
+window.openSettings=()=>showModal("Settings",`<div class="success-zone"><b>RTN Chat Lite V6 Speed Cloudinary</b><p class="muted">Cloudinary free media upload, friend request, chat, call, story 12h expire, report/block, admin panel, secure Firestore rules.</p></div><div class="install-note"><div><b>Theme</b><div class="tiny muted">Dark/light mobile friendly UI</div></div><button class="btn ghost" onclick="document.body.dataset.theme=document.body.dataset.theme==='dark'?'':'dark';localStorage.rtnTheme=document.body.dataset.theme||''">Toggle</button></div><div class="install-note"><div><b>System check</b><div class="tiny muted">Firebase/Auth/Cloudinary setup list</div></div><button class="btn" onclick="systemCheck()">Open</button></div><div class="danger-zone" style="margin-top:10px"><b>Safety</b><p class="muted">Block/report profile/post থেকে করা যাবে। Admin panel থেকে reports review করা যাবে।</p></div>`)
+window.systemCheck=()=>showModal("Launch Check",`<div class="system-check"><div><b>✅ Firestore Rules</b><p class="tiny muted">V6 rules publish korte hobe.</p></div><div><b>✅ Auth</b><p class="tiny muted">Email/Password enabled thakte hobe.</p></div><div><b>✅ Cloudinary</b><p class="tiny muted">cloud: dzethfp7x, preset: rtn_chat.</p></div><div><b>✅ Storage</b><p class="tiny muted">Firebase Storage lagbe na.</p></div><div><b>✅ GitHub</b><p class="tiny muted">App file rename: index.html.</p></div><div><b>✅ Admin</b><p class="tiny muted">Admin file rename: admin.html, password 2026.</p></div></div>`)
+
+$("#blueBtn").onclick=()=>showModal("Apply Blue Badge",`<div class="launch-tip"><b>Blue badge request</b><p class="muted">Reason লিখলে admin সহজে বুঝবে কেন verify করা উচিত।</p></div><div class="field"><input id="blueName" value="${esc(me.fullName)}" placeholder="Display name"></div><div class="field"><textarea id="blueReason" class="blue-reason" placeholder="Reason লিখুন: real identity, public figure, creator, business, etc."></textarea></div><button class="btn full" onclick="submitBlueBadge()">Submit Blue Badge Request</button>`)
+window.submitBlueBadge=async()=>{const reason=$("#blueReason").value.trim();if(reason.length<8)return toast("Reason একটু বিস্তারিত লিখুন");await setDoc(doc(db,"blue_requests",me.id),{uid:me.id,username:me.username,name:$("#blueName").value.trim()||me.fullName,reason,status:"pending",createdAt:serverTimestamp()},{merge:true});await setDoc(doc(db,"users",me.id),{blueRequested:true},{merge:true});closeModal();toast("Blue badge request sent")}
+async function renderNotifications(){
+  const s=await getDocs(query(collection(db,"notifications"),where("to","==",me.id),orderBy("createdAt","desc"),limit(40)));
+  updateNoticeBadge(0);
+  $("#notifications").innerHTML=`<div class="card side"><div class="row between"><div><div class="panel-title">Notifications</div><p class="tiny muted">Message/request/call এ sound alert থাকবে app open থাকলে.</p></div><button class="btn xs" onclick="enableNotify()">Enable Sound</button></div>${s.docs.map(d=>{const x=d.data();const icon=x.type==="message"?"💬":x.type==="friend_request"?"👥":x.type==="call"?"📞":x.type==="friend_accept"?"✅":"🔔";return `<div class="person notice-row"><div class="icon">${icon}</div><div class="grow"><b>${esc(x.text)}</b><div class="tiny muted">${esc(x.type||"notice")}</div></div>${x.from?`<button class="btn xs ghost" onclick="showUser('${x.from}')">Open</button>`:""}</div>`}).join("")||'<p class="muted">No notifications</p>'}</div>`;
+  s.docs.forEach(d=>updateDoc(doc(db,"notifications",d.id),{read:true}).catch(()=>{}));
+}
+</script>
+</body></html>
